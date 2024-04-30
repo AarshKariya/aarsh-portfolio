@@ -98,7 +98,7 @@ function Geometries() {
   ));
 }
 
-function Geometry({ r, position, geometry, soundEffects, materials }) {
+function Geometry({ r, position, geometry, soundEffects, materials }: any) {
   const meshRef = useRef();
   const [visible, setVisible] = useState(false);
 
@@ -108,7 +108,7 @@ function Geometry({ r, position, geometry, soundEffects, materials }) {
     return gsap.utils.random(materials);
   }
 
-  function handleClick(e) {
+  function handleClick(e: any) {
     const mesh = e.object;
 
     gsap.utils.random(soundEffects).play();

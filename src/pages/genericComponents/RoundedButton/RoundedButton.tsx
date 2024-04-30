@@ -7,10 +7,10 @@ export default function RoundedButton({
   children,
   backgroundColor = "#455CE9",
   ...attributes
-}) {
+}: any) {
   const circle = useRef(null);
   let timeline = useRef(null);
-  let timeoutId = null;
+  let timeoutId: any = null;
   useEffect(() => {
     timeline.current = gsap.timeline({ paused: true });
     timeline.current

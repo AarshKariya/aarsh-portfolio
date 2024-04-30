@@ -18,6 +18,9 @@ const marqueeVariants = {
 };
 
 const CreativeDeveloperMarquee = () => {
+  const text =
+    "Creative Developer Artificial Intelligence Enthusiast Storyteller";
+  const alphabetArray = text.split("").filter((char) => char !== " ");
   return (
     <div>
       <div className={styles.marquee}>
