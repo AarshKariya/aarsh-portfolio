@@ -1,6 +1,6 @@
 import { Outfit } from "next/font/google";
 import CreativeDeveloperMarquee from "./components/CreativeDeveloperMarquee/CreativeDeveloperMarquee";
-import { Shapes } from "./components/Shapes/Shapes";
+import Shapes from "./components/Shapes/Shapes";
 
 import { stagger, useAnimate, animate, motion } from "framer-motion";
 import Rounded from "../pages/genericComponents/RoundedButton/RoundedButton";
