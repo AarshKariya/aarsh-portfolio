@@ -49,7 +49,7 @@ export default function RoundedButton({
       }}
       {...attributes}
     >
-      {children}
+      <p>{children}</p>
       <div
         ref={circle}
         style={{ backgroundColor }}

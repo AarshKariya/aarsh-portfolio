@@ -12,7 +12,7 @@ export default function Home() {
       <div className="flex justify-between items-center h-full px-4 mx-8">
         <div className="flex flex-col justify-center items-start px-8 text-left max-w-screen-lg">
           <div className={outfit.className}>
-            <div className="gradient-name text-[88px] text-transparent animate-gradient">
+            <div className="gradient-name text-[122px] text-transparent animate-gradient">
               Aarsh Kariya
             </div>
           </div>
