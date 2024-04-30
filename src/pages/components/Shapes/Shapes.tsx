@@ -99,28 +99,30 @@ function Geometries() {
 }
 
 function Geometry({ r, position, geometry, soundEffects, materials }: any) {
-  const meshRef = useRef();
-  const [visible, setVisible] = useState(false);
+  const meshRef = useRef<THREE.Group>(null);
+  const [visible, setVisible] = useState<boolean>(false);
 
-  const startingMaterial = getRandomMaterial();
+  const startingMaterial: THREE.Material = getRandomMaterial();
 
-  function getRandomMaterial() {
-    return gsap.utils.random(materials);
+  function getRandomMaterial(): THREE.Material {
+    return gsap.utils.random(materials) as THREE.Material;
   }
 
   function handleClick(e: any) {
-    const mesh = e.object;
+    const mesh = e.object as THREE.Mesh;
 
-    gsap.utils.random(soundEffects).play();
+    gsap.utils.random(soundEffects as any[]).play();
 
-    gsap.to(mesh.rotation, {
-      x: `+=${gsap.utils.random(0, 2)}`,
-      y: `+=${gsap.utils.random(0, 2)}`,
-      z: `+=${gsap.utils.random(0, 2)}`,
-      duration: 1.3,
-      ease: "elastic.out(1,0.3)",
-      yoyo: true,
-    });
+    if (meshRef.current) {
+      gsap.to(meshRef.current.rotation, {
+        x: `+=${gsap.utils.random(0, 2)}`,
+        y: `+=${gsap.utils.random(0, 2)}`,
+        z: `+=${gsap.utils.random(0, 2)}`,
+        duration: 1.3,
+        ease: "elastic.out(1,0.3)",
+        yoyo: true,
+      });
+    }
 
     mesh.material = getRandomMaterial();
   }
@@ -136,14 +138,17 @@ function Geometry({ r, position, geometry, soundEffects, materials }: any) {
   useEffect(() => {
     let ctx = gsap.context(() => {
       setVisible(true);
-      gsap.from(meshRef.current.scale, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: gsap.utils.random(0.8, 1.2),
-        ease: "elastic.out(1,0.3)",
-        delay: gsap.utils.random(0, 0.5),
-      });
+
+      if (meshRef.current) {
+        gsap.from(meshRef.current.scale, {
+          x: 0,
+          y: 0,
+          z: 0,
+          duration: gsap.utils.random(0.8, 1.2),
+          ease: "elastic.out(1,0.3)",
+          delay: gsap.utils.random(0, 0.5),
+        });
+      }
     });
     return () => ctx.revert();
   }, []);
