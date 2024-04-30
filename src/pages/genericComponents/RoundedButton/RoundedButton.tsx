@@ -8,32 +8,39 @@ export default function RoundedButton({
   backgroundColor = "#455CE9",
   ...attributes
 }: any) {
-  const circle = useRef(null);
-  let timeline = useRef(null);
-  let timeoutId: any = null;
+  const circle = useRef<HTMLDivElement>(null);
+  let timeline = useRef<GSAPTimeline | null>(null);
+  let timeoutId: NodeJS.Timeout | null = null;
   useEffect(() => {
     timeline.current = gsap.timeline({ paused: true });
-    timeline.current
-      .to(
-        circle.current,
-        { top: "-25%", width: "150%", duration: 0.4, ease: "power3.in" },
-        "enter"
-      )
-      .to(
-        circle.current,
-        { top: "-150%", width: "125%", duration: 0.25 },
-        "exit"
-      );
+    if (timeline.current) {
+      // Null check before using timeline.current
+      timeline.current
+        .to(
+          circle.current,
+          { top: "-25%", width: "150%", duration: 0.4, ease: "power3.in" },
+          "enter"
+        )
+        .to(
+          circle.current,
+          { top: "-150%", width: "125%", duration: 0.25 },
+          "exit"
+        );
+    }
   }, []);
 
   const manageMouseEnter = () => {
     if (timeoutId) clearTimeout(timeoutId);
-    timeline.current.tweenFromTo("enter", "exit");
+    if (timeline.current) {
+      timeline.current.tweenFromTo("enter", "exit");
+    }
   };
 
   const manageMouseLeave = () => {
     timeoutId = setTimeout(() => {
-      timeline.current.play();
+      if (timeline.current) {
+        timeline.current.play();
+      }
     }, 300);
   };
 
