@@ -20,8 +20,9 @@ export default function Home() {
   };
 
   const handleEmailClick = () => {
-    router.push("mailto:aarshkariya@gmail.com");
+    router.push("mailto:aarshcreativedev@gmail.com");
   };
+
   return (
     <main className="h-dvh w-dvw flex flex-col">
       <div className="flex justify-between items-center h-full px-4 mx-8">
