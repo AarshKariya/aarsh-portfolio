@@ -29,7 +29,7 @@ const CreativeDeveloperMarquee = () => {
           variants={marqueeVariants}
           animate="animate"
         >
-          <h1>
+          <h1 className="w-2/4">
             Creative Developer Artificial Intelligence Enthusiast Storyteller
           </h1>
         </motion.div>

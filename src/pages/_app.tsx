@@ -5,6 +5,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import Transition from "./components/Transition/Transition";
+import Preloader from "./components/Preloader/Preloader";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -12,6 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className="bg-[#FEFBF6]">
       <AnimatePresence mode="wait">
         <motion.div key={router.route} className="h-full">
+          {/* <Preloader /> */}
           <Transition />
           <Component {...pageProps} />
           <NavigationBar />
