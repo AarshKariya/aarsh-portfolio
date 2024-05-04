@@ -6,7 +6,6 @@ import { stagger, useAnimate, animate, motion } from "framer-motion";
 import Rounded from "../pages/genericComponents/RoundedButton/RoundedButton";
 
 import { useRouter } from "next/router";
-import { useState } from "react";
 
 const outfit = Outfit({ weight: ["400", "900"], subsets: ["latin"] });
 export default function Home() {
@@ -14,7 +13,7 @@ export default function Home() {
 
   const handleResumeClick = () => {
     window.open(
-      "https://drive.google.com/file/d/199oPYDIDuXEoXrLSPFZ6nlUJxRug9gRv/view?usp=sharing",
+      "https://drive.google.com/file/d/1qcw3t_xrRzVp0YAgnbEaLcSS3-NyCdC7/view?usp=sharing",
       "_blank",
       "noopener noreferrer"
     );
