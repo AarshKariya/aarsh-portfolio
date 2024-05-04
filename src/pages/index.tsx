@@ -6,6 +6,7 @@ import { stagger, useAnimate, animate, motion } from "framer-motion";
 import Rounded from "../pages/genericComponents/RoundedButton/RoundedButton";
 
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const outfit = Outfit({ weight: ["400", "900"], subsets: ["latin"] });
 export default function Home() {
@@ -22,6 +23,15 @@ export default function Home() {
   const handleEmailClick = () => {
     router.push("mailto:aarshkariya@gmail.com");
   };
+
+  const handleScheduleACallClick = () => {
+    window.open(
+      "https://calendly.com/aarshcreativedev",
+      "_blank",
+      "noopener noreferrer"
+    );
+  };
+
   return (
     <main className="h-dvh w-dvw flex flex-col">
       <div className="flex justify-between items-center h-full px-4 mx-8">
@@ -44,7 +54,13 @@ export default function Home() {
             <Rounded backgroundColor="#EFBC9B" onClick={handleEmailClick}>
               Get in Touch
             </Rounded>
-            <Rounded backgroundColor="#B67352">Schedule a call</Rounded>
+            <Rounded
+              backgroundColor="#B67352"
+              onClick={handleScheduleACallClick}
+              id="scheduleACall"
+            >
+              Schedule a call
+            </Rounded>
           </div>
         </div>
 
