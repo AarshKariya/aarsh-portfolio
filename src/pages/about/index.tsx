@@ -1,11 +1,10 @@
 import React from "react";
+import MinuteDotsComponent from "../genericComponents/PageTitle/PageTitle";
 
 function AboutMeRoute() {
   return (
-    <div className="h-dvh">
-      <p className="text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
-        Hi, Framer Motion!
-      </p>
+    <div className="h-dvh w-dvw">
+      <MinuteDotsComponent title="About Me" />
     </div>
   );
 }

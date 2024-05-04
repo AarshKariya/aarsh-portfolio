@@ -9,7 +9,7 @@ const MinuteDotsComponent: React.FC<MinuteDotsComponentProps> = ({
   title,
 }: MinuteDotsComponentProps) => {
   return (
-    <div className="flex flex-col h-screen w-screen">
+    <div className="flex flex-col">
       <div className="absolute inset-[70px]">
         <motion.h1
           className="text-6xl"

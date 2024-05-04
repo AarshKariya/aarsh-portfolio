@@ -6,7 +6,7 @@ import MinuteDotsComponent from "../genericComponents/PageTitle/PageTitle";
 
 const Projects = () => {
   return (
-    <div>
+    <div className="h-dvh w-dvw">
       <MinuteDotsComponent title="Projects" />
 
       {/* <ProjectsCard
