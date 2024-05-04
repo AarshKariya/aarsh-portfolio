@@ -13,7 +13,7 @@ export default function Home() {
 
   const handleResumeClick = () => {
     window.open(
-      "https://drive.google.com/file/d/199oPYDIDuXEoXrLSPFZ6nlUJxRug9gRv/view?usp=sharing",
+      "https://drive.google.com/file/d/1qcw3t_xrRzVp0YAgnbEaLcSS3-NyCdC7/view?usp=sharing",
       "_blank",
       "noopener noreferrer"
     );
@@ -22,6 +22,15 @@ export default function Home() {
   const handleEmailClick = () => {
     router.push("mailto:aarshkariya@gmail.com");
   };
+
+  const handleScheduleACallClick = () => {
+    window.open(
+      "https://calendly.com/aarshcreativedev",
+      "_blank",
+      "noopener noreferrer"
+    );
+  };
+
   return (
     <main className="h-dvh w-dvw flex flex-col">
       <div className="flex justify-between items-center h-full px-4 mx-8">
@@ -44,7 +53,13 @@ export default function Home() {
             <Rounded backgroundColor="#EFBC9B" onClick={handleEmailClick}>
               Get in Touch
             </Rounded>
-            <Rounded backgroundColor="#B67352">Schedule a call</Rounded>
+            <Rounded
+              backgroundColor="#B67352"
+              onClick={handleScheduleACallClick}
+              id="scheduleACall"
+            >
+              Schedule a call
+            </Rounded>
           </div>
         </div>
 
