@@ -29,10 +29,18 @@ const MinuteDotsComponent: React.FC<MinuteDotsComponentProps> = ({
         {[...Array(20)].map((_, rowIndex) => (
           <div key={rowIndex} className="flex justify-center w-full">
             {[...Array(80)].map((_, colIndex) => (
-              <div
+              <motion.div
                 key={colIndex}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{
+                  delay: rowIndex * 0.05 + colIndex * 0.02,
+                  duration: 0.5,
+                  type: "spring",
+                  stiffness: 100,
+                }}
                 className="w-0.5 h-0.5 bg-gray-500 rounded-full mr-4 opacity-50"
-              ></div>
+              ></motion.div>
             ))}
           </div>
         ))}
