@@ -11,6 +11,23 @@ const Testimonials = () => {
   useGSAP(
     () => {
       const cards = gsap.utils.toArray(".Card");
+
+      // Set initial visibility to hidden
+      gsap.set(cards, { visibility: "hidden", opacity: 0 });
+
+      // Animate visibility and opacity with ease-in after 4 seconds delay
+      gsap.fromTo(
+        cards,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          visibility: "visible",
+          delay: 1.5,
+          duration: 0.8,
+          ease: "power2.inOut",
+        }
+      );
+
       gsap.set(cards, {
         zIndex: (i) => 30 + i,
         transformOrigin: "50% -400px",
