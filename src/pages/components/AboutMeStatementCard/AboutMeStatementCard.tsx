@@ -38,7 +38,7 @@ const AboutMeStatementCard = () => {
 
   return (
     <motion.div
-      className="card transition duration-500 ease-in-out bg-[#F8EDEB] hover:bg-[#E3F6F5] rounded-lg flex flex-col items-center justify-center h-full w-full scale-80"
+      className="card transition duration-500 ease-in-out bg-[#F8EDEB] hover:bg-[#E3F6F5] rounded-lg flex flex-col items-center justify-center h-full w-full py-72"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >

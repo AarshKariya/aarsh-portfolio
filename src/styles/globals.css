@@ -35,3 +35,12 @@ body {
 .card-2 {
   transform: translateX(20px) translateY(-20px);
 }
+/* styles/globals.css or appropriate CSS file */
+.creative-developer-section {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
