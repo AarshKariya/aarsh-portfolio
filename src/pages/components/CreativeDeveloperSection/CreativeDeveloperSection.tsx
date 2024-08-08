@@ -81,7 +81,7 @@ const CreativeDeveloperSection = () => {
         <p className="text-6xl font-semibold text-gray-900 mb-1">
           Hi, I am Aarsh!
           <span role="img" aria-label="waving hand">
-            👋
+            👋🏻
           </span>
         </p>
         <p className="text-3xl font-medium text-gray-700 mb-4">
