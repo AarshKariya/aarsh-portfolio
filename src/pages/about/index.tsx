@@ -2,6 +2,8 @@ import React from "react";
 import MinuteDotsComponent from "../genericComponents/PageTitle/PageTitle";
 import AboutMeStatementCard from "../components/AboutMeStatementCard/AboutMeStatementCard";
 import CreativeDeveloperSection from "../components/CreativeDeveloperSection/CreativeDeveloperSection";
+import ServicesCards from "../components/ServicesCards/ServicesCards";
+import TechIUse from "../components/TechSection/TechSection";
 
 function AboutMeRoute() {
   return (
@@ -9,6 +11,8 @@ function AboutMeRoute() {
       <MinuteDotsComponent title="About Me" />
       <AboutMeStatementCard />
       <CreativeDeveloperSection />
+      <ServicesCards />
+      <TechIUse />
     </div>
   );
 }
