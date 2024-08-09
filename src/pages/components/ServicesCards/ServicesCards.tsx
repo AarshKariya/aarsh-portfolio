@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 interface Service {
@@ -25,8 +25,9 @@ const services: Service[] = [
 ];
 
 const ServicesCards: React.FC = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
-    <div className="services-section py-16 px-4">
+    <div className="services-section py-4 px-40">
       <h2 className="text-3xl font-semibold text-gray-900 mb-8">
         What I can do for you
       </h2>
@@ -35,15 +36,19 @@ const ServicesCards: React.FC = () => {
           <motion.div
             key={index}
             className="relative p-6 border border-gray-200 rounded-lg shadow-lg overflow-hidden"
-            whileHover="hover"
-            initial="initial"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
           >
             <motion.div
-              className="absolute inset-0 bg-gray-900 bg-opacity-50"
-              variants={{
-                hover: { top: "0%", transition: { duration: 0.5 } },
-                initial: { top: "-100%", transition: { duration: 0.5 } },
-              }}
+              className="absolute inset-0 bg-[#F8EDEB]"
+              initial={{ height: 0, top: 0 }}
+              animate={
+                hoveredIndex === index
+                  ? { height: "100%", top: 0 }
+                  : { height: 0, top: 0 }
+              }
+              exit={{ height: 0, top: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               style={{ zIndex: 1 }}
             />
             <div className="relative z-10">
