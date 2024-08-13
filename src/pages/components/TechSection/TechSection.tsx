@@ -1,5 +1,67 @@
-import React from "react";
-import Marquee from "react-fast-marquee";
+// import React from "react";
+// import Marquee from "react-fast-marquee";
+
+// const techImages = [
+//   "/tech1.png",
+//   "/tech2.png",
+//   "/tech3.png",
+//   "/tech4.png",
+//   "/tech5.png",
+//   "/tech6.png",
+//   "/tech7.png",
+//   "/tech8.png",
+//   "/tech9.png",
+//   "/tech10.png",
+//   "/tech11.png",
+//   "/tech12.png",
+// ];
+
+// const TechIUse: React.FC = () => {
+//   return (
+//     <div className="tech-i-use-section py-16 px-4">
+//       <h2 className="text-3xl font-semibold text-gray-900 mb-8">Tech I use</h2>
+//       <div className="marquee-container">
+//         <Marquee gradient={false} speed={30} className="marquee">
+//           {techImages.slice(0, 6).map((src, index) => (
+//             <img
+//               key={index}
+//               src={src}
+//               alt={`Tech ${index + 1}`}
+//               className="w-24 h-24 object-contain mx-2"
+//             />
+//           ))}
+//         </Marquee>
+//         <Marquee
+//           gradient={false}
+//           speed={30}
+//           direction="right"
+//           className="marquee"
+//         >
+//           {techImages.slice(6).map((src, index) => (
+//             <img
+//               key={index}
+//               src={src}
+//               alt={`Tech ${index + 7}`}
+//               className="w-24 h-24 object-contain mx-2"
+//             />
+//           ))}
+//         </Marquee>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default TechIUse;
+
+import React, { useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectCoverflow } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 const techImages = [
   "/tech1.png",
@@ -16,36 +78,77 @@ const techImages = [
   "/tech12.png",
 ];
 
+const multiplier = {
+  translate: 0.1,
+  rotate: 0.01,
+};
+
 const TechIUse: React.FC = () => {
+  useEffect(() => {
+    const calculateWheel = () => {
+      const slides = document.querySelectorAll<HTMLElement>(".single");
+      slides.forEach((slide) => {
+        const rect = slide.getBoundingClientRect();
+        const r = window.innerWidth * 0.5 - (rect.x + rect.width * 0.5);
+        let ty =
+          Math.abs(r) * multiplier.translate -
+          rect.width * multiplier.translate;
+
+        if (ty < 0) {
+          ty = 0;
+        }
+
+        const transformOrigin = r < 0 ? "left top" : "right top";
+        slide.style.transform = `translateY(${ty}px) rotate(${
+          -r * multiplier.rotate
+        }deg)`;
+        slide.style.transformOrigin = transformOrigin;
+      });
+    };
+
+    const raf = () => {
+      requestAnimationFrame(raf);
+      calculateWheel();
+    };
+
+    raf();
+  }, []);
+
   return (
-    <div className="tech-i-use-section py-16 px-4">
-      <h2 className="text-3xl font-semibold text-gray-900 mb-8">Tech I use</h2>
-      <div className="marquee-container">
-        <Marquee gradient={false} speed={30} className="marquee">
-          {techImages.slice(0, 6).map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              alt={`Tech ${index + 1}`}
-              className="w-24 h-24 object-contain mx-2"
-            />
-          ))}
-        </Marquee>
-        <Marquee
-          gradient={false}
-          speed={30}
-          direction="right"
-          className="marquee"
+    <div className="tech-i-use-section py-16 px-4 bg-gray-900 text-white">
+      <h2 className="text-3xl font-semibold text-white mb-8 text-center">
+        Tech I Use
+      </h2>
+      <div className="overflow-x-clip">
+        <Swiper
+          spaceBetween={24}
+          centeredSlides={true}
+          loop={true}
+          slidesPerView={"auto"}
+          grabCursor={true}
+          className="py-20 overflow-visible"
+          autoplay={{ delay: 2500 }}
+          effect="coverflow"
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
         >
-          {techImages.slice(6).map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              alt={`Tech ${index + 7}`}
-              className="w-24 h-24 object-contain mx-2"
-            />
+          {techImages.map((src, index) => (
+            <SwiperSlide key={index} className="w-[300px]">
+              <div className="single relative pointer-events-none select-none shadow-[rgba(255,255,255,0.1)_0px_1px_1px_0px_inset,rgba(50,50,93,0.25)_0px_50px_100px_-20px,rgba(0,0,0,0.3)_0px_30px_60px_-30px] rounded-lg">
+                <img
+                  src={src}
+                  alt={`Tech ${index + 1}`}
+                  className="w-full h-auto align-top rounded-lg"
+                />
+              </div>
+            </SwiperSlide>
           ))}
-        </Marquee>
+        </Swiper>
       </div>
     </div>
   );
