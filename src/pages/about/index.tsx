@@ -4,6 +4,7 @@ import AboutMeStatementCard from "../components/AboutMeStatementCard/AboutMeStat
 import CreativeDeveloperSection from "../components/CreativeDeveloperSection/CreativeDeveloperSection";
 import ServicesCards from "../components/ServicesCards/ServicesCards";
 import TechIUse from "../components/TechSection/TechSection";
+import ExperienceSection from "../components/ExperienceSection/ExperienceSection";
 
 function AboutMeRoute() {
   return (
@@ -13,6 +14,7 @@ function AboutMeRoute() {
       <CreativeDeveloperSection />
       <ServicesCards />
       <TechIUse />
+      <ExperienceSection />
     </div>
   );
 }

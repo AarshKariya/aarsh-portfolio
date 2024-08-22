@@ -64,9 +64,9 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 const techImages = [
-  "/tech1.png",
-  "/tech2.png",
-  "/tech3.png",
+  "/vercel.svg",
+  "/adaniWilmarIcon.svg",
+  "/doubleQuotesIcon.svg",
   "/tech4.png",
   "/tech5.png",
   "/tech6.png",
@@ -143,7 +143,7 @@ const TechIUse: React.FC = () => {
                 <img
                   src={src}
                   alt={`Tech ${index + 1}`}
-                  className="w-full h-auto align-top rounded-lg"
+                  className="w-32 h-32 align-top rounded-lg"
                 />
               </div>
             </SwiperSlide>
