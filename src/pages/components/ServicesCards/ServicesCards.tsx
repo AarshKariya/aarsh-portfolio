@@ -27,7 +27,7 @@ const services: Service[] = [
 const ServicesCards: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
-    <div className="services-section py-4 px-40">
+    <div className="services-section py-8 px-40">
       <h2 className="text-3xl font-semibold text-gray-900 mb-8">
         What I can do for you
       </h2>
