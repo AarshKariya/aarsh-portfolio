@@ -64,18 +64,19 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 const techImages = [
-  "/vercel.svg",
-  "/adaniWilmarIcon.svg",
-  "/doubleQuotesIcon.svg",
-  "/tech4.png",
-  "/tech5.png",
-  "/tech6.png",
-  "/tech7.png",
-  "/tech8.png",
-  "/tech9.png",
-  "/tech10.png",
-  "/tech11.png",
-  "/tech12.png",
+  "/javascriptIcon.svg",
+  "/typescript.svg",
+  "/next-js.svg",
+  "/react.svg",
+  "/react-native.svg",
+  "/tailwindcss.svg",
+  "/sass.svg",
+  "/aws.svg",
+  "/python.svg",
+  "/postgresql.svg",
+  "/express.svg",
+  "/gsap-greensock.svg",
+  "/framer-motion.svg",
 ];
 
 const multiplier = {
@@ -115,8 +116,8 @@ const TechIUse: React.FC = () => {
   }, []);
 
   return (
-    <div className="tech-i-use-section py-16 px-4 bg-gray-900 text-white">
-      <h2 className="text-3xl font-semibold text-white mb-8 text-center">
+    <div className="tech-i-use-section py-8 px-40">
+      <h2 className="text-3xl font-semibold text-black mb-8 text-left">
         Tech I Use
       </h2>
       <div className="overflow-x-clip">
