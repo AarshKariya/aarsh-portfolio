@@ -53,7 +53,7 @@
 
 // export default TechIUse;
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 
@@ -62,22 +62,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
-const techImages = [
-  "/javascriptIcon.svg",
-  "/typescript.svg",
-  "/next-js.svg",
-  "/react.svg",
-  "/react-native.svg",
-  "/tailwindcss.svg",
-  "/sass.svg",
-  "/aws.svg",
-  "/python.svg",
-  "/postgresql.svg",
-  "/express.svg",
-  "/gsap-greensock.svg",
-  "/framer-motion.svg",
-];
+import { techImages } from "@/utils/techImages";
 
 const multiplier = {
   translate: 0.1,
@@ -85,6 +70,8 @@ const multiplier = {
 };
 
 const TechIUse: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState<number>(1);
+
   useEffect(() => {
     const calculateWheel = () => {
       const slides = document.querySelectorAll<HTMLElement>(".single");
@@ -137,19 +124,24 @@ const TechIUse: React.FC = () => {
             modifier: 1,
             slideShadows: true,
           }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex + 1)}
         >
           {techImages.map((src, index) => (
             <SwiperSlide key={index} className="w-[300px]">
               <div className="single relative pointer-events-none select-none shadow-[rgba(255,255,255,0.1)_0px_1px_1px_0px_inset,rgba(50,50,93,0.25)_0px_50px_100px_-20px,rgba(0,0,0,0.3)_0px_30px_60px_-30px] rounded-lg">
                 <img
-                  src={src}
+                  src={src.url}
                   alt={`Tech ${index + 1}`}
                   className="w-32 h-32 align-top rounded-lg"
                 />
+                <div>{src.title}</div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+        <div className="mt-4 text-center">
+          <span className="text-xl font-semibold">{activeIndex}</span> / 13
+        </div>
       </div>
     </div>
   );
