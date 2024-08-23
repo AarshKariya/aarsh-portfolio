@@ -115,7 +115,7 @@ const ExperienceSection = () => {
           className="h-0.5 bg-gray-300"
           initial={{ width: 0, left: "180px" }}
           whileInView={{
-            width: "80%",
+            width: "100%",
           }}
           transition={{ duration: 1, delay: 0.3 }}
         />
@@ -129,7 +129,7 @@ const ExperienceSection = () => {
           className="h-0.5 bg-gray-300"
           initial={{ width: 0, left: "180px" }}
           whileInView={{
-            width: "80%",
+            width: "100%",
           }}
           transition={{ duration: 1, delay: 0.3 }}
         />
@@ -143,7 +143,7 @@ const ExperienceSection = () => {
           className="h-0.5 bg-gray-300"
           initial={{ width: 0, left: "180px" }}
           whileInView={{
-            width: "80%",
+            width: "100%",
           }}
           transition={{ duration: 1, delay: 0.3 }}
         />
