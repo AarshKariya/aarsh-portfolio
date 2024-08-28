@@ -112,7 +112,7 @@ const TechIUse: React.FC = () => {
           spaceBetween={24}
           centeredSlides={true}
           loop={true}
-          slidesPerView={"auto"}
+          slidesPerView="auto"
           grabCursor={true}
           className="py-20 overflow-visible"
           autoplay={{ delay: 2500 }}
@@ -127,8 +127,13 @@ const TechIUse: React.FC = () => {
           onSlideChange={(swiper) => setActiveIndex(swiper.realIndex + 1)}
         >
           {techImages.map((src, index) => (
-            <SwiperSlide key={index} className="w-[300px]">
-              <div className="single relative pointer-events-none select-none shadow-[rgba(255,255,255,0.1)_0px_1px_1px_0px_inset,rgba(50,50,93,0.25)_0px_50px_100px_-20px,rgba(0,0,0,0.3)_0px_30px_60px_-30px] rounded-lg">
+            <SwiperSlide key={index} className="w-[400px]">
+              <div
+                className="single relative pointer-events-none select-none rounded-lg"
+                style={{
+                  backgroundColor: `hsl(${(index * 30) % 360}, 70%, 50%)`, // Assign a unique color to each card
+                }}
+              >
                 <img
                   src={src.url}
                   alt={`Tech ${index + 1}`}
