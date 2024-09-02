@@ -120,10 +120,10 @@ const ExperienceSection = () => {
           transition={{ duration: 1, delay: 0.3 }}
         />
         <ExperienceItem
-          company="Company A"
-          year="2023"
-          position="Senior Developer"
-          link="https://example.com"
+          company="Mitti Labs"
+          year="Feb 2024 - Present"
+          position="Software Engineer"
+          link="https://www.mittilabs.earth/"
         />
         <motion.div
           className="h-0.5 bg-gray-300"
@@ -134,10 +134,10 @@ const ExperienceSection = () => {
           transition={{ duration: 1, delay: 0.3 }}
         />
         <ExperienceItem
-          company="Company B"
-          year="2021"
-          position="UI/UX Designer"
-          link="https://example.com"
+          company="Pazcare"
+          year="May 2022 - Jan 2024"
+          position="Associate Frontend Engineer"
+          link="https://www.pazcare.com/"
         />
         <motion.div
           className="h-0.5 bg-gray-300"

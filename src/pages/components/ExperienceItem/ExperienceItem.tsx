@@ -59,7 +59,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
 }) => {
   return (
     <motion.div
-      className="flex justify-start items-center space-x-4"
+      className="flex justify-between items-center space-x-4"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -68,7 +68,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-2xl font-semibold text-blue-600 hover:underline"
+        className="text-2xl font-semibold text-black hover:underline"
       >
         {company}
       </a>
