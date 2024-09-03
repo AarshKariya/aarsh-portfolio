@@ -24,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <main className="h-dvh w-dvw flex flex-col">
+    <main className="h-dvh w-dvw flex flex-col overflow-hidden">
       <div className="flex justify-between items-center h-full px-4 mx-8">
         <div className="flex flex-col justify-center items-start px-8 text-left max-w-screen-lg">
           <div className={outfit.className}>

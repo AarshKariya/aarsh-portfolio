@@ -1,39 +1,14 @@
 import React from "react";
-import { motion } from "framer-motion";
-import styles from "./CreativeDeveloperMarquee.module.css";
-
-const marqueeVariants = {
-  animate: {
-    x: [0, -1800],
-    transition: {
-      x: {
-        repeat: Infinity,
-        repeatType: "loop",
-        duration: 10,
-        ease: "linear",
-        staggerChildren: 0.05,
-      },
-    },
-  },
-};
+import Marquee from "react-fast-marquee";
 
 const CreativeDeveloperMarquee = () => {
-  const text =
-    "Creative Developer Artificial Intelligence Enthusiast Storyteller";
-  const alphabetArray = text.split("").filter((char) => char !== " ");
   return (
-    <div>
-      <div className={styles.marquee}>
-        <motion.div
-          className={styles.track}
-          variants={marqueeVariants}
-          animate="animate"
-        >
-          <h1 className="w-2/4">
-            Creative Developer Artificial Intelligence Enthusiast Storyteller
-          </h1>
-        </motion.div>
-      </div>
+    <div className="relative w-screen max-w-full h-[206px] overflow-hidden">
+      <Marquee className="absolute whitespace-nowrap">
+        <h1 className="my-5 text-[8rem] font-inter text-[#8cb9bd] opacity-20">
+          Creative Developer Artificial Intelligence Enthusiast Storyteller
+        </h1>
+      </Marquee>
     </div>
   );
 };
