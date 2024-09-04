@@ -98,7 +98,7 @@ import ExperienceItem from "../ExperienceItem/ExperienceItem";
 
 const ExperienceSection = () => {
   return (
-    <div className="experience-section flex flex-col w-full px-40 py-4">
+    <div className="experience-section flex flex-col w-full px-40 py-4 pb-28">
       {/* Experience Section Title */}
       <motion.h2
         className="text-4xl font-bold text-left"
@@ -106,7 +106,7 @@ const ExperienceSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Experience Section
+        Experience
       </motion.h2>
 
       {/* Experience Items */}
