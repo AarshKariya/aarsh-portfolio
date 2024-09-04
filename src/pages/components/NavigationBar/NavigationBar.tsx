@@ -33,24 +33,24 @@ export const navData = [
     icon: <Cheers />,
     id: 4,
   },
-  {
-    name: "techblog",
-    path: "/techblog",
-    icon: <Newspaper />,
-    id: 5,
-  },
-  {
-    name: "litblog",
-    path: "/litblog",
-    icon: <Books />,
-    id: 6,
-  },
-  {
-    name: "contact",
-    path: "/contact",
-    icon: <Chats />,
-    id: 7,
-  },
+  // {
+  //   name: "techblog",
+  //   path: "/techblog",
+  //   icon: <Newspaper />,
+  //   id: 5,
+  // },
+  // {
+  //   name: "litblog",
+  //   path: "/litblog",
+  //   icon: <Books />,
+  //   id: 6,
+  // },
+  // {
+  //   name: "contact",
+  //   path: "/contact",
+  //   icon: <Chats />,
+  //   id: 7,
+  // },
 ];
 
 import Link from "next/link";

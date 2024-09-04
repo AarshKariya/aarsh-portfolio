@@ -42,7 +42,11 @@ const Footer = () => {
         >
           <GithubLogo className="w-6 h-6 hover:text-gray-400 transition-colors duration-300" />
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://twitter.com/AarshKariya"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <XLogo className="w-6 h-6 hover:text-gray-400 transition-colors duration-300" />
         </a>
         <a
