@@ -13,7 +13,7 @@ export default function Home() {
 
   const handleResumeClick = () => {
     window.open(
-      "https://drive.google.com/file/d/1qcw3t_xrRzVp0YAgnbEaLcSS3-NyCdC7/view?usp=sharing",
+      "https://drive.google.com/file/d/1M-fnhaZGgmw4PyjwbRJkyXRihRyzNitw/view?usp=sharing",
       "_blank",
       "noopener noreferrer"
     );
