@@ -13,7 +13,7 @@ export default function Home() {
 
   const handleResumeClick = () => {
     window.open(
-      "https://drive.google.com/file/d/1qcw3t_xrRzVp0YAgnbEaLcSS3-NyCdC7/view?usp=sharing",
+      "https://drive.google.com/file/d/1M-fnhaZGgmw4PyjwbRJkyXRihRyzNitw/view?usp=sharing",
       "_blank",
       "noopener noreferrer"
     );
@@ -24,8 +24,8 @@ export default function Home() {
   };
 
   return (
-    <main className="h-dvh w-dvw flex flex-col overflow-hidden">
-      <div className="flex justify-between items-center h-full px-4 mx-8">
+    <main id="about" className="h-screen w-screen flex flex-col">
+      <div className="flex justify-between items-center flex-grow px-4 mx-8">
         <div className="flex flex-col justify-center items-start px-8 text-left max-w-screen-lg">
           <div className={outfit.className}>
             <div className="gradient-name text-[122px] text-transparent animate-gradient">
@@ -51,8 +51,10 @@ export default function Home() {
 
         <Shapes />
       </div>
-      <div className="absolute -bottom-16 left-0">
-        <CreativeDeveloperMarquee />
+      <div className="absolute -bottom-20 left-0">
+        <div className="marquee-container">
+          <CreativeDeveloperMarquee />
+        </div>
       </div>
     </main>
   );

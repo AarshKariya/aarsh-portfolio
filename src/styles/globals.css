@@ -26,6 +26,17 @@ body {
   height: 100%;
 }
 
+#about {
+  overflow: hidden;
+}
+
+.marquee-container {
+  position: relative;
+  width: 100%; /* Adjust this value based on how much you want to show */
+  overflow: hidden;
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+}
+
 .card-0 {
   transform: translateX(0) translateY(0);
 }
