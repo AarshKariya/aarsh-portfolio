@@ -23,6 +23,10 @@ export default function Home() {
     router.push("mailto:aarshcreativedev@gmail.com");
   };
 
+  const handleScheduleCallClick = () => {
+    window.open("https://topmate.io/aarsh", "_blank", "noopener noreferrer");
+  };
+
   return (
     <main className="h-screen w-screen flex flex-col overflow-hidden overflow-y-hidden">
       <div className="flex justify-between items-center flex-grow px-4 mx-8">
@@ -45,7 +49,12 @@ export default function Home() {
             <Rounded backgroundColor="#EFBC9B" onClick={handleEmailClick}>
               Get in Touch
             </Rounded>
-            <Rounded backgroundColor="#B67352">Schedule a call</Rounded>
+            <Rounded
+              backgroundColor="#B67352"
+              onClick={handleScheduleCallClick}
+            >
+              Schedule a call
+            </Rounded>
           </div>
         </div>
 
