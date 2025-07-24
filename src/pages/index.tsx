@@ -6,10 +6,21 @@ import { stagger, useAnimate, animate, motion } from "framer-motion";
 import Rounded from "../pages/genericComponents/RoundedButton/RoundedButton";
 
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const outfit = Outfit({ weight: ["400", "900"], subsets: ["latin"] });
 export default function Home() {
   const router = useRouter();
+
+  useEffect(() => {
+    // Add class to disable scrolling only on this page
+    document.body.classList.add("home-page-no-scroll");
+
+    // Remove class when component unmounts
+    return () => {
+      document.body.classList.remove("home-page-no-scroll");
+    };
+  }, []);
 
   const handleResumeClick = () => {
     window.open(
