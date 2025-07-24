@@ -51,12 +51,7 @@ export default function Home() {
             </Rounded>
             <Rounded
               backgroundColor="#B67352"
-<<<<<<< HEAD
               onClick={handleScheduleCallClick}
-=======
-              onClick={handleScheduleACallClick}
-              id="scheduleACall"
->>>>>>> main
             >
               Schedule a call
             </Rounded>
