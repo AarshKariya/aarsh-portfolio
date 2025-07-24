@@ -1,153 +1,139 @@
-// import React from "react";
-// import Marquee from "react-fast-marquee";
-
-// const techImages = [
-//   "/tech1.png",
-//   "/tech2.png",
-//   "/tech3.png",
-//   "/tech4.png",
-//   "/tech5.png",
-//   "/tech6.png",
-//   "/tech7.png",
-//   "/tech8.png",
-//   "/tech9.png",
-//   "/tech10.png",
-//   "/tech11.png",
-//   "/tech12.png",
-// ];
-
-// const TechIUse: React.FC = () => {
-//   return (
-//     <div className="tech-i-use-section py-16 px-4">
-//       <h2 className="text-3xl font-semibold text-gray-900 mb-8">Tech I use</h2>
-//       <div className="marquee-container">
-//         <Marquee gradient={false} speed={30} className="marquee">
-//           {techImages.slice(0, 6).map((src, index) => (
-//             <img
-//               key={index}
-//               src={src}
-//               alt={`Tech ${index + 1}`}
-//               className="w-24 h-24 object-contain mx-2"
-//             />
-//           ))}
-//         </Marquee>
-//         <Marquee
-//           gradient={false}
-//           speed={30}
-//           direction="right"
-//           className="marquee"
-//         >
-//           {techImages.slice(6).map((src, index) => (
-//             <img
-//               key={index}
-//               src={src}
-//               alt={`Tech ${index + 7}`}
-//               className="w-24 h-24 object-contain mx-2"
-//             />
-//           ))}
-//         </Marquee>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TechIUse;
-
 import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import { techImages } from "@/utils/techImages";
 
-const multiplier = {
-  translate: 0.1,
-  rotate: 0.01,
+// Brand colors for each technology's glow effect
+const techGlowColors = {
+  Javascript: "#F7DF1E",
+  Typescript: "#3178C6",
+  NextJS: "#000000",
+  React: "#61DAFB",
+  "React Native": "#61DAFB",
+  TailwindCSS: "#06B6D4",
+  SCSS: "#CF649A",
+  "Amazon AWS": "#FF9900",
+  Python: "#3776AB",
+  PostgreSQL: "#336791",
+  ExpressJS: "#000000",
+  GSAP: "#88CE02",
+  "Framer Motion": "#BB4B96",
 };
 
 const TechIUse: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(1);
+  // State for tracking current carousel position
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const visibleCards = 5;
 
+  // Auto-advance carousel every 2 seconds
   useEffect(() => {
-    const calculateWheel = () => {
-      const slides = document.querySelectorAll<HTMLElement>(".single");
-      slides.forEach((slide) => {
-        const rect = slide.getBoundingClientRect();
-        const r = window.innerWidth * 0.5 - (rect.x + rect.width * 0.5);
-        let ty =
-          Math.abs(r) * multiplier.translate -
-          rect.width * multiplier.translate;
-
-        if (ty < 0) {
-          ty = 0;
-        }
-
-        const transformOrigin = r < 0 ? "left top" : "right top";
-        slide.style.transform = `translateY(${ty}px) rotate(${
-          -r * multiplier.rotate
-        }deg)`;
-        slide.style.transformOrigin = transformOrigin;
-      });
-    };
-
-    const raf = () => {
-      requestAnimationFrame(raf);
-      calculateWheel();
-    };
-
-    raf();
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % techImages.length);
+    }, 2000);
+    return () => clearInterval(interval);
   }, []);
 
+  // Calculate which 5 cards to show based on current index
+  const getVisibleCards = () => {
+    const cards = [];
+    for (let i = 0; i < visibleCards; i++) {
+      const index = (currentIndex + i) % techImages.length;
+      cards.push({ ...techImages[index], originalIndex: index });
+    }
+    return cards;
+  };
+
   return (
-    <div className="tech-i-use-section py-8 px-40">
-      <h2 className="text-3xl font-semibold text-black mb-8 text-left">
+    <div className="tech-i-use-section w-full py-16 px-4 md:px-40">
+      {/* Section Title */}
+      <h2 className="text-3xl font-semibold text-black mb-16 text-center">
         Tech I Use
       </h2>
-      <div className="overflow-x-clip">
-        <Swiper
-          spaceBetween={24}
-          centeredSlides={true}
-          loop={true}
-          slidesPerView="auto"
-          grabCursor={true}
-          className="py-20 overflow-visible"
-          autoplay={{ delay: 2500 }}
-          effect="coverflow"
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex + 1)}
-        >
-          {techImages.map((src, index) => (
-            <SwiperSlide key={index} className="w-[400px]">
+
+      {/* Carousel Container - Shows 5 cards in a row */}
+      <div className="flex items-center justify-center gap-6 max-w-4xl mx-auto">
+        {getVisibleCards().map((tech, displayIndex) => {
+          const glowColor =
+            techGlowColors[tech.title as keyof typeof techGlowColors] ||
+            "#6366F1";
+
+          return (
+            <div
+              key={`${tech.originalIndex}-${displayIndex}`}
+              className="flex-shrink-0 transition-all duration-500 ease-in-out"
+            >
+              {/* Tech Card with Glow Effect */}
               <div
-                className="single relative pointer-events-none select-none rounded-lg"
+                className="relative bg-white w-24 h-24 p-4 rounded-2xl shadow-lg hover:scale-110 transition-transform duration-300"
                 style={{
-                  backgroundColor: `hsl(${(index * 30) % 360}, 70%, 50%)`, // Assign a unique color to each card
+                  boxShadow: `0 4px 15px rgba(0, 0, 0, 0.1), 0 0 20px ${glowColor}33, 0 0 40px ${glowColor}22`,
+                  animation: `pulse-${tech.originalIndex} 3s ease-in-out infinite`,
                 }}
               >
-                <img
-                  src={src.url}
-                  alt={`Tech ${index + 1}`}
-                  className="w-32 h-32 align-top rounded-lg"
+                {/* Inner Glow Overlay */}
+                <div
+                  className="absolute inset-0 rounded-2xl opacity-30"
+                  style={{
+                    background: `radial-gradient(circle at center, ${glowColor}44 0%, transparent 70%)`,
+                  }}
                 />
-                <div>{src.title}</div>
+
+                {/* Tech Icon */}
+                <img
+                  src={tech.url}
+                  alt={tech.title}
+                  className="w-full h-full object-contain relative z-10"
+                />
+
+                {/* Tooltip on Hover */}
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-20">
+                  {tech.title}
+                </div>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div className="mt-4 text-center">
-          <span className="text-xl font-semibold">{activeIndex}</span> / 13
-        </div>
+            </div>
+          );
+        })}
       </div>
+
+      {/* Carousel Progress Indicators */}
+      <div className="flex justify-center mt-8 gap-2">
+        {techImages.map((_, index) => (
+          <div
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex ? "bg-gray-800 w-6" : "bg-gray-300"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* CSS Animations for Pulsing Glow Effect */}
+      <style jsx>{`
+        ${techImages
+          .map(
+            (tech, index) => `
+          @keyframes pulse-${index} {
+            0%, 100% {
+              box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 20px ${
+                techGlowColors[tech.title as keyof typeof techGlowColors] ||
+                "#6366F1"
+              }33, 0 0 40px ${
+              techGlowColors[tech.title as keyof typeof techGlowColors] ||
+              "#6366F1"
+            }22;
+            }
+            50% {
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 0 30px ${
+                techGlowColors[tech.title as keyof typeof techGlowColors] ||
+                "#6366F1"
+              }55, 0 0 60px ${
+              techGlowColors[tech.title as keyof typeof techGlowColors] ||
+              "#6366F1"
+            }33;
+            }
+          }
+        `
+          )
+          .join("")}
+      `}</style>
     </div>
   );
 };
