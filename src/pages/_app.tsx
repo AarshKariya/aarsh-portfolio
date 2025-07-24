@@ -1,10 +1,26 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
+
+import { useRouter } from "next/router";
+import { AnimatePresence, motion } from "framer-motion";
+import Transition from "./components/Transition/Transition";
+import Preloader from "./components/Preloader/Preloader";
+import Layout from "./components/Layout/Layout";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   return (
     <div className="bg-[#FEFBF6]">
-      <Component {...pageProps} />
+      <Layout>
+        <AnimatePresence mode="wait">
+          <motion.div key={router.route} className="h-full">
+            {/* <Preloader /> */}
+            <Transition />
+            <Component {...pageProps} />
+          </motion.div>
+        </AnimatePresence>
+      </Layout>
     </div>
   );
 }

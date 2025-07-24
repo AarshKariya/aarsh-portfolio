@@ -22,6 +22,38 @@
 
 html,
 body {
-  overflow-y: hidden;
+  overflow: hidden;
   height: 100%;
+  position: fixed;
+  width: 100%;
+}
+
+#about {
+  overflow: hidden;
+}
+
+.marquee-container {
+  position: relative;
+  width: 100%; /* Adjust this value based on how much you want to show */
+  overflow: hidden;
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+}
+
+.card-0 {
+  transform: translateX(0) translateY(0);
+}
+.card-1 {
+  transform: translateX(10px) translateY(-10px);
+}
+.card-2 {
+  transform: translateX(20px) translateY(-20px);
+}
+/* styles/globals.css or appropriate CSS file */
+.creative-developer-section {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

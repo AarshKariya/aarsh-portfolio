@@ -17,6 +17,10 @@ const config: Config = {
       animation: {
         gradient: "gradient 6s linear infinite",
       },
+      translate: {
+        "5": "1.25rem",
+        "10": "2.5rem",
+      },
     },
   },
   plugins: [],

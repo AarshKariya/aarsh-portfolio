@@ -20,20 +20,16 @@ export default function Home() {
   };
 
   const handleEmailClick = () => {
-    router.push("mailto:aarshkariya@gmail.com");
+    router.push("mailto:aarshcreativedev@gmail.com");
   };
 
-  const handleScheduleACallClick = () => {
-    window.open(
-      "https://calendly.com/aarshcreativedev",
-      "_blank",
-      "noopener noreferrer"
-    );
+  const handleScheduleCallClick = () => {
+    window.open("https://topmate.io/aarsh", "_blank", "noopener noreferrer");
   };
 
   return (
-    <main className="h-dvh w-dvw flex flex-col">
-      <div className="flex justify-between items-center h-full px-4 mx-8">
+    <main className="h-screen w-screen flex flex-col overflow-hidden overflow-y-hidden">
+      <div className="flex justify-between items-center flex-grow px-4 mx-8">
         <div className="flex flex-col justify-center items-start px-8 text-left max-w-screen-lg">
           <div className={outfit.className}>
             <div className="gradient-name text-[122px] text-transparent animate-gradient">
@@ -55,8 +51,7 @@ export default function Home() {
             </Rounded>
             <Rounded
               backgroundColor="#B67352"
-              onClick={handleScheduleACallClick}
-              id="scheduleACall"
+              onClick={handleScheduleCallClick}
             >
               Schedule a call
             </Rounded>
@@ -65,8 +60,10 @@ export default function Home() {
 
         <Shapes />
       </div>
-      <div className="absolute -bottom-16 left-0">
-        <CreativeDeveloperMarquee />
+      <div className="absolute -bottom-20 left-0">
+        <div className="marquee-container">
+          <CreativeDeveloperMarquee />
+        </div>
       </div>
     </main>
   );

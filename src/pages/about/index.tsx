@@ -1,11 +1,20 @@
 import React from "react";
+import MinuteDotsComponent from "../genericComponents/PageTitle/PageTitle";
+import AboutMeStatementCard from "../components/AboutMeStatementCard/AboutMeStatementCard";
+import CreativeDeveloperSection from "../components/CreativeDeveloperSection/CreativeDeveloperSection";
+import ServicesCards from "../components/ServicesCards/ServicesCards";
+import TechIUse from "../components/TechSection/TechSection";
+import ExperienceSection from "../components/ExperienceSection/ExperienceSection";
 
 function AboutMeRoute() {
   return (
-    <div className="h-dvh">
-      <p className="text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
-        Hi, Framer Motion!
-      </p>
+    <div className="min-h-screen flex flex-col items-center justify-start">
+      <MinuteDotsComponent title="About Me" />
+      <AboutMeStatementCard />
+      <CreativeDeveloperSection />
+      <ServicesCards />
+      <TechIUse />
+      <ExperienceSection />
     </div>
   );
 }
