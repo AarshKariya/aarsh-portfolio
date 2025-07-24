@@ -70,7 +70,7 @@ const CreativeDeveloperSection = () => {
     >
       <img
         ref={imageRef}
-        src="/aarshProfile.jpg"
+        src="/aarshProfile.JPG"
         alt="Creative Developer"
         className="w-[300px] h-[471px] object-cover rounded-lg"
       />
