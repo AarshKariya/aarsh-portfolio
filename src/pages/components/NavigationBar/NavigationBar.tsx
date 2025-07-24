@@ -27,12 +27,12 @@ export const navData = [
     icon: <Briefcase />,
     id: 3,
   },
-  {
-    name: "testimonials",
-    path: "/testimonials",
-    icon: <Cheers />,
-    id: 4,
-  },
+  // {
+  //   name: "testimonials",
+  //   path: "/testimonials",
+  //   icon: <Cheers />,
+  //   id: 4,
+  // },
   // {
   //   name: "techblog",
   //   path: "/techblog",

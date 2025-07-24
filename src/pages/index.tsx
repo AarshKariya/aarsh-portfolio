@@ -24,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <main id="about" className="h-screen w-screen flex flex-col">
+    <main className="h-screen w-screen flex flex-col overflow-hidden overflow-y-hidden">
       <div className="flex justify-between items-center flex-grow px-4 mx-8">
         <div className="flex flex-col justify-center items-start px-8 text-left max-w-screen-lg">
           <div className={outfit.className}>
